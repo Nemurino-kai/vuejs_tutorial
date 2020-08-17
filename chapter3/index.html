@@ -9,9 +9,11 @@
 
 <body>
     <div id="app">
-        <button @click="handleClick">クリック</button> </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="main.js"></script>
+        <button @click="handleClick">クリック</button>
+        <div v-if="show" v-on:mousewheel="show=false">文字の上でマウスホイールを回転してみて</div>
+    </div>
+    <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="main.js "></script>
 </body>
 
 </html>
