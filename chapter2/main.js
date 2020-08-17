@@ -40,6 +40,13 @@ var app = new Vue({
                 name: this.name, // 現在のフォームの入力値
                 hp: 500
             })
+        },
+
+        // 要素を削除ボタンをクリックしたときのハンドラ
+        doRemove: function(index) {
+            // 受け取ったインデックスの位置から1個要素を削除
+            this.enemys.splice(index, 1)
         }
+
     }
 })

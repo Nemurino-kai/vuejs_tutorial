@@ -13,10 +13,10 @@
         <input v-model="name">
         <button v-on:click="doAdd">モンスターを追加</button>
         <ul>
-            <li v-for="item in enemys" v-bind:key="item.id" v-bind:class="{tuyoi: item.hp > 300}" v-if="item.hp > 150">
+            <li v-for="(item, index) in enemys" v-bind:key="item.id" v-bind:class="{tuyoi: item.hp > 300}" v-if="item.hp > 150">
                 ID.{{ item.id }} {{item.name}} HP.{{item.hp}}
                 <span v-if="item.hp > 300">つよい！</span>
-            </li>
+                <button v-on:click="doRemove(index)">モンスターを消去</button> </li>
         </ul>
         <div v-if="type === 'A'">
             typeはA
