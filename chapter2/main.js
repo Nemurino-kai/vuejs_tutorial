@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        show: true,
         type: "A",
         radius: 50,
         isChild: true,
@@ -28,7 +29,9 @@ var app = new Vue({
             console.error(e)
         })
     },
-
+    mounted: function() {
+        console.log(this.$el)
+    },
     methods: {
         increment: function() {
             this.count += 1
@@ -50,7 +53,13 @@ var app = new Vue({
         // 攻撃ボタンをクリックしたときのハンドラ
         doAttack: function(index) {
             this.enemys[index].hp -= 10 // HPを減らす
-        }
+        },
 
+        handleClick() {
+            var count = this.$refs.count
+            if (count) {
+                count.innerText = parseInt(count.innerText, 10) + 1
+            }
+        }
     }
 })

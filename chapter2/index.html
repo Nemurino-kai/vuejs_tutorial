@@ -9,7 +9,10 @@
 
 <body>
     <div id="app">
-        名前
+        <button v-on:click="handleClick">カウントアップ</button>
+        <button v-on:click="show=!show">表示/非表示</button>
+
+        <span ref="count" v-if="show">0</span><br> 名前
         <input v-model="name">
         <button v-on:click="doAdd">モンスターを追加</button>
         <ul>
