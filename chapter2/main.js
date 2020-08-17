@@ -14,16 +14,21 @@ var app = new Vue({
         num: 1,
         list: ['にんじん', 'サンダル', 'ヨット', 'ごましお'],
         name: 'キマイラ',
-        enemys: [
-            { id: 1, name: 'スライム', hp: 100 },
-            { id: 2, name: 'ゴブリン', hp: 200 },
-            { id: 3, name: 'ドラゴン', hp: 500 }
-        ],
+        enemys: [],
         styleObject: {
             color: 'red',
             backgroundColor: 'lightgray'
         }
     },
+    created: function() {
+        axios.get('http://localhost:3000/enemys').then(function(response) {
+            // 取得完了したらenemysリストに代入
+            this.enemys = response.data
+        }.bind(this)).catch(function(e) {
+            console.error(e)
+        })
+    },
+
     methods: {
         increment: function() {
             this.count += 1
