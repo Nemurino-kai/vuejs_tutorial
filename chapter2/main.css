@@ -1,0 +1,26 @@
+.item {
+    padding: 4px 8px;
+    transition: background-color 0.4s;
+}
+
+.is-active {
+    background: #a81212;
+}
+
+.tuyoi {
+    color: red;
+}
+
+@keyframes cloak-in {
+    0% {
+        opacity: 0;
+    }
+}
+
+#app {
+    animation: cloak-in 0.5s;
+}
+
+#app[v-cloak] {
+    opacity: 0;
+}
