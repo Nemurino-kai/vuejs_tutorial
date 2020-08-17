@@ -42,10 +42,9 @@ var app = new Vue({
             })
         },
 
-        // 要素を削除ボタンをクリックしたときのハンドラ
-        doRemove: function(index) {
-            // 受け取ったインデックスの位置から1個要素を削除
-            this.enemys.splice(index, 1)
+        // 攻撃ボタンをクリックしたときのハンドラ
+        doAttack: function(index) {
+            this.enemys[index].hp -= 10 // HPを減らす
         }
 
     }
