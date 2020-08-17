@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        radius: 50,
         isChild: true,
         isActive: true,
         textColor: 'red',
