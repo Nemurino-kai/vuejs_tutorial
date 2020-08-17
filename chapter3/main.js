@@ -11,7 +11,14 @@ var app = new Vue({
 
         handleInput: function(event) {
             alert("変更したぜ")
-        }
+        },
 
+        rightClickIsBaned: function(event) {
+            alert("右クリしたな？")
+        },
+
+        handler: function(comment) {
+            console.log(comment)
+        }
     }
 })
