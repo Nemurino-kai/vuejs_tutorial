@@ -1,7 +1,12 @@
 .item {
     padding: 4px 8px;
     transition: background-color 0.4s;
-  }
-  .is-active {
+}
+
+.is-active {
     background: #a81212;
-  }
+}
+
+.tuyoi {
+    color: red;
+}

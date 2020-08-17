@@ -9,6 +9,21 @@
 
 <body>
   <div id="app">
+<ul>
+<li v-for="item in enemys"
+v-bind:key="item.id"
+v-bind:class="{tuyoi: item.hp > 300}"
+v-if="item.hp > 150">
+ID.{{ item.id }} {{item.name}} HP.{{item.hp}}
+<span v-if="item.hp > 300">つよい！</span>
+</li>
+</ul>
+    <div v-if="type === 'A'">
+      typeはA
+    </div>
+    <div v-else>
+      条件を満たさなかった
+    </div>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
     </svg>

@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        type: "A",
         radius: 50,
         isChild: true,
         isActive: true,
@@ -12,13 +13,18 @@ var app = new Vue({
         },
         num: 1,
         list: ['にんじん', 'サンダル', 'ヨット', 'ごましお'],
+        enemys: [
+            { id: 1, name: 'スライム', hp: 100 },
+            { id: 2, name: 'ゴブリン', hp: 200 },
+            { id: 3, name: 'ドラゴン', hp: 500 }
+        ],
         styleObject: {
             color: 'red',
             backgroundColor: 'lightgray'
         }
     },
     methods: {
-        increment: function(){
+        increment: function () {
             this.count += 1
         }
     }
