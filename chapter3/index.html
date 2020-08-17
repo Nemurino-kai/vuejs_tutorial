@@ -11,6 +11,7 @@
     <div id="app">
         <button @click="handleClick">クリック</button>
         <div v-if="show" v-on:mousewheel="show=false">文字の上でマウスホイールを回転してみて</div>
+        <input v-bind:value="message" v-on:change="handleInput">
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
     <script src="main.js "></script>
