@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8">
   <title>Vue.js App</title>
   <link href="main.css" rel="stylesheet">
 </head>
+
 <body>
-<div id="app">
-  <input v-model="message">
-    <p>{{ message }}</p>
-  <input v-model.number="count">
+  <div id="app">
+    <input v-model="message">
+    <p v-if="show">{{ message }}</p>
+    <input v-model.number="count">
     <p>{{ count }}</p>
     <ol>
       <li v-for="item in list">{{ item }}</li>
     </ol>
     <button v-on:click="handleClick">Click</button>
-</div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
