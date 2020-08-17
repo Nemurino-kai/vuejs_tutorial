@@ -25,6 +25,13 @@
         </div>
         <textarea v-model="message"></textarea>
         <pre>{{message}}</pre>
+        <label>
+            <input type="checkbox" v-model="val" true-value="Yes" false-value="No"> {{ val }}
+        </label>
+        <label><input type="checkbox" v-model="multiCheck" value="A"> A</label>
+        <label><input type="checkbox" v-model="multiCheck" value="B"> B</label>
+        <label><input type="checkbox" v-model="multiCheck" value="C"> C</label>
+        <p>{{ multiCheck }}</p>
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
     <script src="main.js "></script>

@@ -3,6 +3,8 @@ var app = new Vue({
     data: {
         message: "kon~",
         show: true,
+        val: "Nothing",
+        multiCheck: []
     },
     methods: {
         handleClick: function(event) {
