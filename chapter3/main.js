@@ -10,7 +10,7 @@ var app = new Vue({
         },
 
         handleInput: function(event) {
-            alert("変更したぜ")
+            alert("変更したように見える？反映されてないんだな、これが")
         },
 
         rightClickIsBaned: function(event) {
