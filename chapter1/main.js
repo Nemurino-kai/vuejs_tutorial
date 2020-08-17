@@ -7,6 +7,7 @@ var app = new Vue({
     },
     data: {
         message :'Hello Vue.js!',
-        list:['にんじん','サンダル','ヨット','ごましお']
+        count :5,
+        list :['にんじん','サンダル','ヨット','ごましお']
     }
   })
