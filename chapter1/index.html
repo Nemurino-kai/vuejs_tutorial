@@ -10,7 +10,10 @@
 <body>
   <div id="app">
     <input v-model="message">
-    <p v-if="show">{{ message }}</p>
+    <transition>
+      <p v-if="show">{{ message }}</p>
+    </transition>
+    <button v-on:click="show=!show">切り替え</button><br>
     <input v-model.number="count">
     <p>{{ count }}</p>
     <ol>
