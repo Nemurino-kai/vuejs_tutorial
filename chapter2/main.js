@@ -13,6 +13,7 @@ var app = new Vue({
         },
         num: 1,
         list: ['にんじん', 'サンダル', 'ヨット', 'ごましお'],
+        name: 'キマイラ',
         enemys: [
             { id: 1, name: 'スライム', hp: 100 },
             { id: 2, name: 'ゴブリン', hp: 200 },
@@ -24,8 +25,21 @@ var app = new Vue({
         }
     },
     methods: {
-        increment: function () {
+        increment: function() {
             this.count += 1
+        },
+
+        doAdd: function() {
+            // リスト内で1番大きいIDを取得
+            var max = this.enemys.reduce(function(a, b) {
+                    return a > b.id ? a : b.id
+                }, 0)
+                // 新しいモンスターをリストに追加
+            this.enemys.push({
+                id: max + 1, // 現在の最大のIDに+1してユニークなIDを作成
+                name: this.name, // 現在のフォームの入力値
+                hp: 500
+            })
         }
     }
 })
