@@ -46,8 +46,12 @@
         <p>{{ multiCheck }}</p>
         <input type="file" v-on:change="handleChange">
         <div v-if="preview"><img v-bind:src="preview"></div>
+        <div v-on:click="scrollTop">
+            ページ上部へ移動
+        </div>
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5"></script>
     <script src="main.js "></script>
 </body>
 

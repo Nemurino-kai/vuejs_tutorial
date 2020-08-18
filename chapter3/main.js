@@ -1,3 +1,5 @@
+var scroll = new SmoothScroll()
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -29,6 +31,10 @@ var app = new Vue({
             if (file && file.type.match(/^image\/(png|jpeg)$/)) {
                 this.preview = window.URL.createObjectURL(file)
             }
+        },
+
+        scrollTop: function() {
+            scroll.animateScroll(0)
         }
     }
 })
