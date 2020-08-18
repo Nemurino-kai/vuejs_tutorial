@@ -4,7 +4,8 @@ var app = new Vue({
         message: "kon~",
         show: true,
         val: "Nothing",
-        multiCheck: []
+        multiCheck: [],
+        preview: ""
     },
     methods: {
         handleClick: function(event) {
@@ -21,6 +22,13 @@ var app = new Vue({
 
         handler: function(comment) {
             console.log(comment)
+        },
+
+        handleChange: function(event) {
+            var file = event.target.files[0]
+            if (file && file.type.match(/^image\/(png|jpeg)$/)) {
+                this.preview = window.URL.createObjectURL(file)
+            }
         }
     }
 })
