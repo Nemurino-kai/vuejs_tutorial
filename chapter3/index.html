@@ -30,9 +30,19 @@
         </label>
         <label><input type="radio" value="Yes" v-model="val"> Yes</label>
         <label><input type="radio" value="No" v-model="val"> No</label>
-        <label><input type="checkbox" v-model="multiCheck" value="I"> 私は</label>
+        <select v-model="val">
+            <option disabled="disabled">選択してください</option>
+            <option value="Yes">いえーす！</option>
+            <option value="No">それは違うよ</option>
+        </select> <label><input type="checkbox" v-model="multiCheck" value="I"> 私は</label>
         <label><input type="checkbox" v-model="multiCheck" value="My"> 私の</label>
         <label><input type="checkbox" v-model="multiCheck" value="Me"> 私を</label>
+        <select v-model="multiCheck" multiple>
+            <option value="I">主格</option>
+            <option value="My">所有格</option>
+            <option value="Me">目的格</option>
+            <option value="Mine">所有代名詞</option>
+        </select>
         <p>{{ multiCheck }}</p>
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
