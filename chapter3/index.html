@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" v-on:click.right.prevent="rightClickIsBaned">
+        <button @click="handleClick">クリック</button>
+        <div v-if="show" v-on:mousewheel="show=false">文字の上でマウスホイールを回転してみて</div>
+        <input v-bind:value="message" v-on:change="handleInput">
+        <div v-on:click="handler('div1')">
+            click-div1
+            <a href="#top" v-on:click.stop="handler('div2')">click-stop-div2</a>
+        </div>
+        <div v-on:click.capture="handler('div1')">
+            click-capture-div1
+            <div v-on:click="handler('div2')">
+                click-div2
+                <div v-on:click="handler('div3')">click-div3</div>
+            </div>
+        </div>
+        <textarea v-model="message"></textarea>
+        <pre>{{message}}</pre>
+        <label>
+            <input type="checkbox" v-model="val" true-value="Yes" false-value="No"> {{ val }}
+        </label>
+        <label><input type="radio" value="Yes" v-model="val"> Yes</label>
+        <label><input type="radio" value="No" v-model="val"> No</label>
+        <select v-model="val">
+            <option disabled="disabled">選択してください</option>
+            <option value="Yes">いえーす！</option>
+            <option value="No">それは違うよ</option>
+        </select> <label><input type="checkbox" v-model="multiCheck" value="I"> 私は</label>
+        <label><input type="checkbox" v-model="multiCheck" value="My"> 私の</label>
+        <label><input type="checkbox" v-model="multiCheck" value="Me"> 私を</label>
+        <select v-model="multiCheck" multiple>
+            <option value="I">主格</option>
+            <option value="My">所有格</option>
+            <option value="Me">目的格</option>
+            <option value="Mine">所有代名詞</option>
+        </select>
+        <p>{{ multiCheck }}</p>
+        <input type="file" v-on:change="handleChange">
+        <div v-if="preview"><img v-bind:src="preview"></div>
+        <div v-on:click="scrollTop">
+            ページ上部へ移動
+        </div>
+    </div>
+    <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5"></script>
+    <script src="main.js "></script>
+</body>
+
+</html>
