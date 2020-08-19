@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: "変更を監視しています",
+        message: "最初の一回だけ、変更を監視しています",
+        edited: false,
         width: 799,
         order: false,
         budget: 300,
@@ -13,6 +14,17 @@ var app = new Vue({
             { id: 4, name: 'ごましお', price: 1 },
             { id: 5, name: 'ロケット', price: 3000000000 }
         ]
+    },
+    created: function() {
+
+        var unwatch = this.$watch('width', function(newVal, oldVal) {
+            this.message = oldVal + "から" + newVal + "に変わりましたね～"
+                // listが編集されたことを記録する
+            this.edited = true
+                // 監視を解除
+            unwatch()
+        })
+
     },
     computed: {
         halfWidth: {
@@ -39,9 +51,4 @@ var app = new Vue({
     methods: {
         methodsData: function() { return Math.random() }
     },
-    watch: {
-        width: function(newVal, oldVal) {
-            this.message = oldVal + "から" + newVal + "に変わりましたね～"
-        }
-    }
 })
