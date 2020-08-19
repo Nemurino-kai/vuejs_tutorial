@@ -34,7 +34,7 @@
         <ul>
             <!-- v-forでは最終結果、算出プロパティのlimitedを使用する -->
             <li v-for="item in limited" v-bind:key="item.id">
-                {{ item.name }} {{ item.price }}円
+                {{ item.name }} {{ item.price | localeNum }}円
             </li>
         </ul>
     </div>

@@ -67,5 +67,10 @@ var app = new Vue({
                 this.list = response.data.items
             }.bind(this))
         }
+    },
+    filters: {
+        localeNum: function(val) {
+            return val.toLocaleString()
+        }
     }
 })
