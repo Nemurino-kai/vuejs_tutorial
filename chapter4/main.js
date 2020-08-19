@@ -1,7 +1,9 @@
 var app = new Vue({
     el: '#app',
     data: {
+        message: "変更を監視しています",
         width: 799,
+        order: false,
         budget: 300,
         limit: 2,
         list: [
@@ -27,11 +29,19 @@ var app = new Vue({
                 return el.price <= this.budget
             }, this)
         },
+        sorted: function() {
+            return _.orderBy(this.matched, 'price', this.order ? 'desc' : 'asc')
+        },
         limited: function() {
-            return this.matched.slice(0, this.limit)
+            return this.sorted.slice(0, this.limit)
         }
     },
     methods: {
         methodsData: function() { return Math.random() }
+    },
+    watch: {
+        width: function(newVal, oldVal) {
+            this.message = oldVal + "から" + newVal + "に変わりましたね～"
+        }
     }
 })
