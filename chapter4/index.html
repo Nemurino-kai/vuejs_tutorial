@@ -40,6 +40,10 @@
                 {{ item.name }} {{ item.price | localeNum }}円
             </li>
         </ul>
+        <button v-on:click="numbers.push(numbers.length+1)">追加</button>
+        <ul ref="numbers">
+            <li v-for="number in numbers">{{ number }}</li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>

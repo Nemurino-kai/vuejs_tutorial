@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
         video1: false,
         video2: false,
+        numbers: [],
         list: [],
         current: '',
         topics: [
@@ -75,6 +76,15 @@ var app = new Vue({
             }).then(function(response) {
                 this.list = response.data.items
             }.bind(this))
+        },
+
+        numbers: function() {
+            // 更新後のul要素の高さを取得できない…
+            console.log('通常:', this.$refs.numbers.offsetHeight)
+                // nextTickを使えばできる！
+            this.$nextTick(function() {
+                console.log('nextTick:', this.$refs.numbers.offsetHeight)
+            })
         }
     },
     filters: {
