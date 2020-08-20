@@ -13,6 +13,16 @@ Vue.component('comp-child', {
 
 })
 
+Vue.component('comp-event', {
+    template: '<button v-on:click="handleClick">イベント発火</button>',
+    methods: {
+        // ボタンのクリックイベントのハンドラでchilds-eventを発火する
+        handleClick: function() {
+            this.$emit('childs-event')
+        }
+    }
+})
+
 new Vue({
     el: '#app',
     data: {
@@ -21,5 +31,11 @@ new Vue({
             { id: 2, name: 'ゴブリン', hp: 200 },
             { id: 3, name: 'ドラゴン', hp: 500 }
         ]
+    },
+    methods: {
+        // childs-eventが発生した！
+        parentsMethod: function() {
+            alert('イベントをキャッチ！ ')
+        }
     }
 })
