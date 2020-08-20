@@ -1,10 +1,14 @@
-var myComponent = {
-    template: '<p>まいこんぽーねんと</p>'
-}
+Vue.component('comp-child', {
+    // テンプレートで受け取ったvalを使用
+    template: '<p>{{ val }}</p>',
+    // 受け取る属性名を指定
+    props: ['val']
+})
 
-var app = new Vue({
+new Vue({
     el: '#app',
-    components: {
-        'my-component': myComponent
+    data: {
+        valueA: 'すこすこすこんぶのすこ',
+        valueB: 'すこすこスコティッシュフォールド'
     }
 })
