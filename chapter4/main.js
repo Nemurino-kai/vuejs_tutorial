@@ -1,6 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
+        video1: false,
+        video2: false,
         list: [],
         current: '',
         topics: [
@@ -20,6 +22,13 @@ var app = new Vue({
             { id: 4, name: 'ごましお', price: 1 },
             { id: 5, name: 'ロケット', price: 3000000000 }
         ]
+    },
+    directives: {
+        video(el, binding) {
+            if (binding.value !== binding.oldValue) {
+                binding.value ? el.play() : el.pause()
+            }
+        }
     },
     created: function() {
 
