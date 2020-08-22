@@ -1,16 +1,18 @@
 Vue.component('comp-child', {
-    template: '<li>{{ name }} HP.{{ hp }}</li>',
+    template: '<li>{{ name }} HP.{{ hp }}\
+    <button v-on:click="doAttack">攻撃する</button></li>',
     props: {
-        name: {
-            type: String,
-            required: true,
-        },
-        hp: {
-            type: Number,
-            required: true,
-        },
+        id: Number,
+        name: String,
+        hp: Number
+    },
+    methods: {
+        // ボタンのクリックイベントのハンドラから$emitでattackを発火する
+        doAttack: function() {
+            // 引数として自分のIDを渡す
+            this.$emit('attack', this.id)
+        }
     }
-
 })
 
 Vue.component('comp-event', {
@@ -33,9 +35,14 @@ new Vue({
         ]
     },
     methods: {
-        // childs-eventが発生した！
-        parentsMethod: function() {
-            alert('イベントをキャッチ！ ')
+        // attackが発生した！
+        handleAttack: function(id) {
+            // 引数のIDから要素を検索
+            var item = this.list.find(function(el) {
+                    return el.id === id
+                })
+                // HPが0より多ければ10減らす
+            if (item !== undefined && item.hp > 0) item.hp -= 10
         }
     }
 })
