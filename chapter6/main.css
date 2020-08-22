@@ -1,14 +1,20 @@
-/* 1秒かけて透明度を遷移 */
-
 .v-enter-active,
 .v-leave-active {
-    transition: opacity 1s;
+    transition: opacity 1s, transform 1s;
 }
 
 
-/* 見えなくなるときの透明度 */
+/* 表示するときは左から */
 
-.v-enter,
+.v-enter {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+
+/* 消えるときは下へ */
+
 .v-leave-to {
     opacity: 0;
+    transform: translateY(10px);
 }
