@@ -4,6 +4,24 @@ var bus = new Vue({
     }
 })
 
+Vue.component('slot-comp', {
+    template: '<section class="comp-child">\
+    <slot name="header">\
+      <header>\
+        デフォルトタイトル\
+      </header>\
+    </slot>\
+    <div class="content">\
+      <slot>デフォルトコンテンツ</slot>\
+    </div>\
+    <slot name="footer">\
+      <!-- なければ何も表示しない -->\
+    </slot>\
+  </section>',
+
+})
+
+
 Vue.component('comp-refed', {
     template: '<div>...</div>',
     created: function() {
