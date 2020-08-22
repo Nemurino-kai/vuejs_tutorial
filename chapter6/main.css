@@ -1,20 +1,13 @@
 .v-enter-active,
 .v-leave-active {
-    transition: opacity 1s, transform 1s;
+    transition: opacity 1s;
 }
 
-
-/* 表示するときは左から */
-
-.v-enter {
-    opacity: 0;
-    transform: translateX(-10px);
+.v-leave-active {
+    position: absolute;
 }
 
-
-/* 消えるときは下へ */
-
+.v-enter,
 .v-leave-to {
     opacity: 0;
-    transform: translateY(10px);
 }
