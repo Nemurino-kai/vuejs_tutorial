@@ -1,6 +1,8 @@
 new Vue({
     el: '#app',
     data: {
-        show: true
+        show: true,
+        count: 0
+
     }
 })

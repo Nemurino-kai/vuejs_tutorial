@@ -10,10 +10,16 @@
 <body>
     <div id="app">
         <p><button v-on:click="show=!show">切り替え</button></p>
-        <transition>
+        <transition mode="in-out">
             <div v-if="show" key="a">TRUE</div>
             <div v-else key="b">FALSE</div>
         </transition>
+
+        <p><button v-on:click="count++">切り替え</button></p>
+        <transition name="counter">
+            <div v-bind:key="count">{{ count }}</div>
+        </transition>
+
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
     <script src="main.js "></script>
