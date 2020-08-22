@@ -24,6 +24,8 @@
         </slot-comp>
 
         <my-calendar v-model="date"></my-calendar>
+        <my-component v-bind:name.sync="name" v-bind:hp.sync="hp"></my-component>
+
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
     <script src="main.js "></script>
