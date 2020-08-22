@@ -4,6 +4,23 @@ var bus = new Vue({
     }
 })
 
+Vue.component('my-calendar', {
+    model: {
+        // 現在の値をvalueではなくcurrentに割り当てる
+        prop: 'current',
+        // イベントをchangeに割り当てる
+        event: 'change'
+    },
+    // propsでcurrentを受け取る
+    props: {
+        current: String
+    },
+    created: function() {
+        this.$emit('change', '2018-01-01')
+    },
+    template: "<div>{{ current }}</div>"
+})
+
 Vue.component('slot-comp', {
     template: '<section class="comp-child">\
     <slot name="header">\
@@ -72,7 +89,8 @@ new Vue({
             { id: 1, name: 'スライム', hp: 100 },
             { id: 2, name: 'ゴブリン', hp: 200 },
             { id: 3, name: 'ドラゴン', hp: 500 }
-        ]
+        ],
+        date: "2020-08-01"
     },
     methods: {
         // attackが発生した！
