@@ -1,3 +1,24 @@
+var bus = new Vue({
+    data: {
+        count: 0
+    }
+})
+
+Vue.component('component-b', {
+    template: '<p>bus: {{ bus.count }}</p>',
+    computed: {
+        // busのデータを算出プロパティに使用
+        bus: function() {
+            return bus.$data
+        }
+    },
+    created: function() {
+        bus.$on('bus-event', function() {
+            this.count++
+        })
+    }
+})
+
 Vue.component('comp-child', {
     template: '<li>{{ name }} HP.{{ hp }}\
     <button v-on:click="doAttack">攻撃する</button></li>',
@@ -11,16 +32,7 @@ Vue.component('comp-child', {
         doAttack: function() {
             // 引数として自分のIDを渡す
             this.$emit('attack', this.id)
-        }
-    }
-})
-
-Vue.component('comp-event', {
-    template: '<button v-on:click="handleClick">イベント発火</button>',
-    methods: {
-        // ボタンのクリックイベントのハンドラでchilds-eventを発火する
-        handleClick: function() {
-            this.$emit('childs-event')
+            bus.$emit('bus-event')
         }
     }
 })

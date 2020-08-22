@@ -11,6 +11,8 @@
     <div id="app">
         <ul>
             <comp-child v-for="item in list" v-bind:key="item.id" v-bind="item" v-on:attack="handleAttack"></comp-child>
+            <component-b> </component-b>
+
         </ul>
 
     </div>
