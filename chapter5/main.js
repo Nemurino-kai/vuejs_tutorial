@@ -4,6 +4,16 @@ var bus = new Vue({
     }
 })
 
+Vue.component('comp-refed', {
+    template: '<div>...</div>',
+    created: function() {
+        // 自分自身のイベント
+        this.$on('open', function() {
+            alert('攻撃したぜウォウウォウ')
+        })
+    }
+})
+
 Vue.component('component-b', {
     template: '<p>bus: {{ bus.count }}</p>',
     computed: {
@@ -55,6 +65,11 @@ new Vue({
                 })
                 // HPが0より多ければ10減らす
             if (item !== undefined && item.hp > 0) item.hp -= 10
+            this.handleClick()
+        },
+        handleClick: function() {
+            // 子コンポーネントのイベントを発火
+            this.$refs.child.$emit('open')
         }
     }
 })
