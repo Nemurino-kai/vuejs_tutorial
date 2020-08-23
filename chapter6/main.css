@@ -1,0 +1,25 @@
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 1s;
+}
+
+.v-leave-active {
+    position: absolute;
+}
+
+.counter-leave-active {
+    transition: opacity 0.5s ease 0.5s;
+    position: absolute;
+}
+
+
+/* 1秒かけて要素を移動させる */
+
+.v-move {
+    transition: transform 1s;
+}
+
+.v-enter,
+.v-leave-to {
+    opacity: 0;
+}
