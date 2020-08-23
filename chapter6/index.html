@@ -20,8 +20,17 @@
             <div v-bind:key="count">{{ count }}</div>
         </transition>
 
+        <p><button v-on:click="order=!order">切り替え</button></p>
+        <!-- transition-groupタグに指定した属性はラップ要素に付与される -->
+        <transition-group tag="ul" class="list">
+            <li v-for="item in sortedList" v-bind:key="item.id">
+                {{ item.name }} {{ item.price }}円
+            </li>
+        </transition-group>
+
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     <script src="main.js "></script>
 </body>
 

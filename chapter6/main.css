@@ -12,6 +12,13 @@
     position: absolute;
 }
 
+
+/* 1秒かけて要素を移動させる */
+
+.v-move {
+    transition: transform 1s;
+}
+
 .v-enter,
 .v-leave-to {
     opacity: 0;
