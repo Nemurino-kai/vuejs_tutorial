@@ -5,7 +5,9 @@
       <router-link to="/product">商品情報</router-link>
     </nav>
     <!-- ここにパスと一致したコンポーネントが埋め込まれる -->
+    <transition name="view">
     <router-view />
+    </transition>
   </div>
 </template>
 
@@ -26,5 +28,15 @@ nav a {
 /* アクティブなリンク */
 .router-link-active {
     background: palevioletred;
+}
+
+.view-enter-active, .view-leave-active {
+  transition: opacity 0.5s;
+}
+.view-leave-active {
+  position: absolute;
+}
+.view-enter, .view-leave-to {
+  opacity: 0;
 }
 </style>
