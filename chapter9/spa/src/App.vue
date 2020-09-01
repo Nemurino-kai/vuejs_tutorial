@@ -1,3 +1,13 @@
+<script>
+import LoadingOverlay from './components/LoadingOverlay'
+
+// 読み込んだ Name コンポーネントを
+// 使えるようにする設定
+export default {
+  components: { LoadingOverlay }
+}
+</script>
+
 <template>
   <div id="app">
     <nav>
@@ -8,6 +18,8 @@
     <transition name="view">
     <router-view />
     </transition>
+    <!-- オーバーレイ用のコンポーネント -->
+<LoadingOverlay />
   </div>
 </template>
 

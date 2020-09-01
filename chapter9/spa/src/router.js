@@ -8,6 +8,7 @@ import ProductList from '@/views/ProductList'
 import ProductHome from '@/views/Product/Home'
 import ProductReview from '@/views/Product/Review'
 import ProductReviewDetail from '@/views/Product/ReviewDetail'
+import store from './store.js'
 
 Vue.use(VueRouter)
 
@@ -55,4 +56,15 @@ const router = new VueRouter({
     }
   ]
 })
+
+// ルーターナビゲーションの前にフック
+router.beforeEach((to, from, next) => {
+  store.commit('view/start')
+  next()
+})
+// ルーターナビゲーションの後にフック
+router.afterEach(() => {
+  store.commit('view/end')
+})
+
 export default router

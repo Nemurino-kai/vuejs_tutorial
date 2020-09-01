@@ -1,13 +1,12 @@
 import Vue from 'vue'
-import store from './store.js'
-import App from './App.vue'
 import router from './router.js'
+import App from './App.vue'
+import store from './store.js'
 
 // eslint-disable-next-line no-new
 new Vue({
   el: '#app',
-  store, // アプリケーションに登録
+  store,
   router,
   render: h => h(App)
-  // ...
 })
